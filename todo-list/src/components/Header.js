@@ -1,22 +1,24 @@
+import { useState } from "react";
+// import BlogList from "./BlogList";
+import TodoList from "./TodoList";
 
+const Header = () => {
+  const [blogs, setBlogs] = useState([
+    { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+    { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+    { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+  ])
 
-const Header = ({title}) => {
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter(blog => blog.id !== id);
+    setBlogs(newBlogs);
+  }
+
   return (
-    <header className="header">
-      <h1 >{title}</h1>
-      <button className="btn">Add</button>
-    </header>
-  )
+    <div className="home">
+      <TodoList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+    </div>
+  );
 }
-
-Header.defaultProps = {
- title: "Task Tracker"
-}
-
-// const headingStyle = { color:"red", 
-//                       backgroundColor:"black", 
-//                       fontSize: "80px"
-
-// }
-
-export default Header
+ 
+export default Header;
