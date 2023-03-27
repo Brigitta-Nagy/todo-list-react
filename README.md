@@ -1,3 +1,3 @@
 # todo-list-react
 
-https://resonant-pasca-16ce58.netlify.app/
+todo-app-brigitta-nagy.netlify.app
